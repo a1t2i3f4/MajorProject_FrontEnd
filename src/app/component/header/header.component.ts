@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/service/cart.service';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog} from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 import { SignupComponent } from '../signup/signup.component';
 import { RegistrationService } from 'src/app/service/registration.service';
