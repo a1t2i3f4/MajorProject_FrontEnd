@@ -1,6 +1,6 @@
 
-<header>
-    <div class="navbar navbar-dark bg-primary shadow-sm">
+<!-- <header> -->
+    <!-- <div class="navbar navbar-dark bg-primary shadow-sm"   >
         <div class="bav-bar-brand align-item-center d-flex">
             <i style="font-size:40px; color: white; margin-left: 20px;" class="fas fa-shipping-fast">&nbsp;
 
@@ -16,17 +16,195 @@
             <button class="btn btn-primary" *ngIf="!loggedIn()" (click)="Login()">Login</button>
             <button class="btn btn-primary" *ngIf="!loggedIn()" (click)="Signup()">Signup</button>
             <button class="btn btn-primary" *ngIf="!loggedIn()" (click)="Login()">Admin</button>
-            <button class="btn btn-primary" *ngIf="loggedIn()" routerLink="/products"  (click)="onLogout()">Logout</button>
-            <!-- <h6 *ngFor="let i of res">{{user.emailId}}</h6> -->
-            <h4 class="float-left" style="color: white;" *ngIf="loggedIn()">welcome {{x}}</h4>
+             <button class="btn btn-primary" *ngIf="loggedIn()" routerLink="/products"  (click)="onLogout()">Logout</button> -->
+     
+            <!-- <h4 class="float-left" style="color: white;" *ngIf="loggedIn()">welcome {{x}}</h4> --> 
 
+            <!-- <div>
+            <button  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" *ngIf="loggedIn()" (click)="edit(update)">Update Profile</button>
+        </div> -->
+
+        <!-- <div>
+            <button  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3" *ngIf="loggedIn()">Wallet</button>
+        </div> -->
+
+        <!-- <div class="dropdown" style="margin-left:170px;" *ngIf="loggedIn()">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <button  class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal3" *ngIf="loggedIn()">Wallet</button>
+                <button  class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal2" *ngIf="loggedIn()" (click)="edit(update)">Update Profile</button>
+                <button class="btn btn-light" *ngIf="loggedIn()" routerLink="/products"  (click)="onLogout()">Logout</button>
+            </div>
+          </div> -->
             
-  
 
-            <button routerLink="cart" class="btn btn-primary" style="margin-left:500px;">
+  
+<!-- 
+            <button  routerLink="cart" class="btn btn-primary" style="margin-left:500px;">
                 <i class="fa fa-shopping-cart" style="font-size:30px;color: yellow;"></i>
-                <div style="font-size: 10px;" class="badge bg-danger">{{totalItem}}</div>
+                <div  style="font-size: 10px;" class="badge bg-danger">{{totalItem}}</div>
             </button>
         </div>
+    </div> -->
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <i style="font-size:40px; color: white; margin-left: 20px;" class="fas fa-shipping-fast">&nbsp;
+    
+        </i>
+        <a class="navbar-brand" style="font-size:30px; color:white;" href="#">Flipkart</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+         
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchTerm" (keyup)="search($event)">
+                <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+              </form>
+        </div>
+        <!-- <h4  style="color: white;" *ngIf="loggedIn()">welcome {{x}}</h4> -->
+    
+        <button class="btn btn-primary" *ngIf="!loggedIn()" (click)="Login()">Login</button>
+        <button class="btn btn-primary" *ngIf="!loggedIn()" (click)="Signup()">Signup</button>
+        <button class="btn btn-primary" *ngIf="!loggedIn()" (click)="Login()">Admin</button>
+        <button  routerLink="cart" class="btn btn-primary" style="margin-left:500px;">
+            <i class="fa fa-shopping-cart" style="font-size:30px;color: yellow;"></i>
+            <div  style="font-size: 10px;" class="badge bg-danger">{{totalItem}}</div>
+        </button>
+        <div class="dropdown" style="margin-right:40px;" *ngIf="loggedIn()">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             View Profile
+            </button>
+            <div class="dropdown-menu" style="position: absolute; top: 33px;left: -13px;" aria-labelledby="dropdownMenuButton">
+                <h3 *ngIf="loggedIn()"><h1 class="text-center"><b>welcome</b></h1> <div class="text-center">{{x}}</div></h3>
+                <button  class="btn btn-light" style="width: 160px;" data-bs-toggle="modal" data-bs-target="#exampleModal3" *ngIf="loggedIn()">Wallet</button>
+                <br>
+                <button  class="btn btn-light" style="width: 160px;" data-bs-toggle="modal" data-bs-target="#exampleModal2" *ngIf="loggedIn()" (click)="edit(update)">Update Profile</button>
+                <br>
+                <button class="btn btn-light" style="width: 160px;" *ngIf="loggedIn()" routerLink="/products"  (click)="onLogout()">Logout</button>
+            </div>
+          </div>
+            
+      </nav>
+
+
+
+
+
+
+
+    <!-- Modal -->
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Please Update here !</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          
+            <div  class="container" >
+                <form [formGroup]="formProfile" (ngSubmit)="updateForm()"  role="form">
+                    <div class="col-sm-6">
+                        <input type="hidden" id="firstName" class="form-control" value="asdf" formControlName="id" />
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName"  class="col-sm-3 control-label">Name</label>
+                        <div class="col-sm-6">
+                            <input  type="text" id="firstName" class="form-control" value="asdf" formControlName="name" />
+                        </div>
+                        <div *ngIf="formProfile.controls['name'].errors" style="color: red;">
+                            This Field is required  
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName" class="col-sm-3 control-label">Email Id</label>
+                        <div class="col-sm-6">
+                            <input type="text" id="firstName" class="form-control" value="asdf" formControlName="emailId" />
+                        </div>
+                        <div *ngIf="formProfile.controls['emailId'].errors" style="color: red;">
+                            This Field is required  
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender" class="col-sm-3 control-label">Password</label>
+                        <div class="col-sm-6">
+                            <input type="text" id="firstName" class="form-control" value="asdf" formControlName="password" />
+                        </div>
+                        <div *ngIf="formProfile.controls['password'].errors" style="color: red;">
+                            This Field is required  
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="firstName"  class="col-sm-3 control-label">Wallet</label>
+                        <div class="col-sm-6">
+                            <input  type="text" id="firstName" class="form-control" value="asdf" formControlName="money" />
+                        </div>
+                        <div *ngIf="formProfile.controls['money'].errors" style="color: red;">
+                            This Field is required  
+                        </div>
+                    </div>
+                   
+                  
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" value="Save"  class="btn btn-primary">Save changes</button>
+                      </div>
+                    <!-- <input type="submit" value="Save" class="btn btn-primary mt-3" />  -->
+                </form>
+            </div> 
+
+        </div>
+        
+      </div>
     </div>
-</header>
+  </div>
+
+
+
+
+
+
+
+  <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Your Balance is:</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          
+            <div  class="container" >
+               
+                <h1>{{walletmoney}}</h1>
+            </div> 
+
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  
+<!-- </header> -->
+
+
+
+

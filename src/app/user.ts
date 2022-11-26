@@ -3,6 +3,7 @@ export class User {
     name!: string;
     emailId!:string;
     password!:string;
+    money!:number;
 
     constructor(){}
     

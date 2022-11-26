@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
 
-  public cartItemList : any =[]
+  public cartItemList : any[] =[]
   public productList = new BehaviorSubject<any>([]);
   public search = new BehaviorSubject<string>("");
 
@@ -14,10 +14,15 @@ export class CartService {
 
   getProducts(){
 
+    // const ls1 = JSON.parse(localStorage.getItem("totalmoney")||'{}');
+    const ls = JSON.parse(localStorage.getItem("cartvalue")||'{}');
+       if(ls) this.productList.next(ls);
+       
+    
     return this.productList.asObservable();  
 
   }
-  setProduct(product:any){
+  setProduct(product:any){  
     this.cartItemList.push(...product);
     this.productList.next(product);
     
@@ -27,6 +32,7 @@ export class CartService {
     this.productList.next(this.cartItemList);
     this.getTotalPrice();
     console.log(this.cartItemList);
+    localStorage.setItem('cartvalue', JSON.stringify(this.cartItemList))
     
 
   }
@@ -34,11 +40,15 @@ export class CartService {
     let grandTotal = 0;
     this.cartItemList.map((a:any)=>{
       grandTotal += a.total;
+      // console.log(grandTotal);
+      localStorage.setItem('totalmoney',JSON.stringify(grandTotal))
+      
     })
     return grandTotal;
   }
   removeCartItem(product: any){
 
+    
     this.cartItemList.map((a:any, index:any)=>{
       if(product.productId === a.productId){
         this.cartItemList.splice(index,1);
@@ -49,5 +59,6 @@ export class CartService {
   removeAllCart(){
     this.cartItemList =[]
     this.productList.next(this.cartItemList);
+    localStorage.removeItem("cartvalue")
   }
 }

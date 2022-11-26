@@ -15,6 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './component/login/login.component';
 import { SignupComponent } from './component/signup/signup.component';
+import { AdminComponent } from './component/admin/admin.component';
+// import { UpdateproductComponent } from './component/updateproduct/updateproduct.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { SignupComponent } from './component/signup/signup.component';
     ProductsComponent,
     FilterPipe,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    AdminComponent,
+    // UpdateproductComponent
   ],
   imports: [
     BrowserModule,

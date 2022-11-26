@@ -26,6 +26,7 @@ export class SignupComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   name = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required, Validators.email]);
+  money = new FormControl('',[Validators.required, Validators.email] );
 
   getErrorMessage() {
     if (this.email.hasError('required')) {

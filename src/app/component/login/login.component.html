@@ -1,7 +1,7 @@
 
 <h1>Please Login here !</h1>
 <br>
- <form #loginform = "ngForm" (ngSubmit)="loginUser()">
+ <form #loginform = "ngForm" (ngSubmit)="loginUser($event)">
     <small class="text-66danger">{{msg}}</small>
 <div class="example-container">
     <mat-form-field appearance="fill" style="width:45vw">

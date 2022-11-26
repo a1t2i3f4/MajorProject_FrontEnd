@@ -64,5 +64,9 @@
         justify-content: center;
         width: 120px;
       }
-      
+
+      .carousel .item {
+        height: 300px;
+      }
+    
  

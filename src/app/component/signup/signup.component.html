@@ -8,6 +8,7 @@
     <mat-form-field appearance="fill" style="width:45vw">
         <mat-label>Name</mat-label>
         <input matInput [(ngModel)]="user.name" [formControl]="name">
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
       </mat-form-field>
       <br>
       <br>
@@ -20,8 +21,10 @@
     <mat-form-field appearance="fill" style="width:45vw">
         <mat-label>Enter your password</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" [(ngModel)]="user.password">
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+         
         </button>
       </mat-form-field>
       <!-- <mat-form-field appearance="fill" style="width:45vw">
@@ -31,6 +34,12 @@
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field> -->
+      <br>
+      <mat-form-field appearance="fill" style="width:45vw">
+        <mat-label> Add Money</mat-label>
+        <input matInput [(ngModel)]="user.money" [formControl]="money">
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
       <br>
 
 <br>

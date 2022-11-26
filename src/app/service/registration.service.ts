@@ -9,6 +9,8 @@ import { User } from '../user';
 })
 export class RegistrationService {
 
+  
+
   constructor(private http: HttpClient, private router: Router) { }
 
   public loginUserFromRemote(user: User):Observable<any> {
@@ -18,8 +20,8 @@ export class RegistrationService {
   public registerUserFromRemote(user: User):Observable<any> {
     return this.http.post<any>("http://localhost:8080/registeruser",user);
   }
-  // handleError(error:Response){
 
-  // }
+
+
   
 }

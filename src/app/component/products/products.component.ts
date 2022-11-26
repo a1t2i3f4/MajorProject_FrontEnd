@@ -12,6 +12,7 @@ export class ProductsComponent implements OnInit {
   public productList : any;
   public filterCategory:any;
   searchKey:string = "";
+  
   constructor(private productservice: ProductService, private cartService: CartService) { }
 
   ngOnInit(): void {
@@ -33,14 +34,15 @@ export class ProductsComponent implements OnInit {
         
         
 
-        
-
         Object.assign(a,{quantity:1,total:a.productRate});
+      
         
       });
+     
       console.log(this.productList);
       
     });
+   
     this.cartService.search.subscribe((val:any)=>{
       this.searchKey = val;
     })
@@ -48,6 +50,9 @@ export class ProductsComponent implements OnInit {
 
   addtocart(item: any){
     this.cartService.addtoCart(item);
+    localStorage.getItem('cartvalue');
+   
+    
   }
   filter(category:string){
     this.filterCategory = this.productList
@@ -57,7 +62,12 @@ export class ProductsComponent implements OnInit {
       }
     })
 
-
   }
+  // loggedIn(){
+  //   return localStorage.getItem('token');
+  // }
+  // onLogout(){
+  //   localStorage.removeItem('token')
+  // }
 
 }

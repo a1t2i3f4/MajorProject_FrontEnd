@@ -35,7 +35,24 @@ export class LoginComponent implements OnInit {
 
   hide = true;
 
-  loginUser(){
+  loginUser(ev:any){
+    // if(user.emailId== "admin@gmail.com " && user.password=="123"){
+    //       console.log(user.emailId);
+    // }
+    
+     
+    if(ev.target[0].value === "admin@admin.com" && ev.target[1].value === "admin") {
+      console.log("admin logged in");
+      localStorage.setItem('token', JSON.stringify(ev.target[0].value ));
+      this.dialog.closeAll();
+      
+      this.route.navigate(['/adminlogin'])
+     
+      
+    }
+    else {
+
+    
     this.service.loginUserFromRemote(this.user).subscribe(
       data=>{
       
@@ -44,6 +61,10 @@ export class LoginComponent implements OnInit {
         // console.log(this.user);
         
         localStorage.setItem('token', JSON.stringify(data.emailId));
+        localStorage.setItem('forupdate', JSON.stringify(data.id));
+        localStorage.setItem('money', JSON.stringify(data.money));
+        localStorage.setItem('name', JSON.stringify(data.name));
+
         this.dialog.closeAll();
         // console.log(localStorage.getItem("token"));
         
@@ -56,8 +77,19 @@ export class LoginComponent implements OnInit {
       
       
     )
+    window.location.reload()
+    }
 
+  }
+ 
+      
+
+
+  //   }
+  
+
+    
   }
   
 
-}
+

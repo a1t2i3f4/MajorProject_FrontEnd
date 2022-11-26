@@ -33,7 +33,7 @@
                             <td colspan="4"></td>
                             <td><button (click)=emptycart() class="btn btn-danger">Empty Cart</button></td>
                             <td><button routerLink="/products" class="btn btn-primary">Shop More</button></td>
-                            <td><button class="btn btn-success">Checkout</button></td>
+                            <td><button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal4" (click)="edit()">Checkout</button></td>
                             <td><strong>Grand Total: ₹ {{grandTotal}}</strong></td>
 
                            
@@ -60,3 +60,105 @@
     </div>
     </ng-container>
     
+
+
+
+     <!-- Modal -->
+  <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Please Order here!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          
+            <div  class="container" >
+                <form  [formGroup]="formProfile" (ngSubmit)="updateForm()"  role="form" >
+                    
+                    <div class="col-sm-6">
+                        <input  type="hidden" name= "userid"  id="firstName" value="asdf" formControlName="userid"  />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="firstName"  class="col-sm-3 control-label">Name</label>
+                        <div class="col-sm-6">
+                            <input  type="text"  name= "username" class="form-control" style="width:400px" id="firstName" value=asdf formControlName="username"   />
+                        </div>
+                        <div *ngIf="formProfile.controls['username'].errors" style="color: red;">
+                            This Field is required  
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="lastName" class="col-sm-3 control-label">Email Id</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control"  style="width:400px"  id="firstName" value=asdf formControlName="emailid"   />
+                        </div>
+                        <div *ngIf="formProfile.controls['emailid'].errors" style="color: red;">
+                            This Field is required  
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName" class="col-sm-3 control-label">Address</label>
+                        <div class="col-sm-6">
+                            <textarea type="text" name= "address" class="form-control"   id="firstName" style="width:400px; height: 200px;"   value="asdf"  formControlName="address"  ></textarea>
+                        </div>
+                        <div *ngIf="formProfile.controls['address'].errors" style="color: red;">
+                            This Field is required  
+                        </div>
+                    </div>
+
+                        <div class="col-sm-6">
+                            <input type="hidden" ngModel name="productId" class="form-control" id="firstName"   value=asdf formControlName="productId"  />
+                        </div>
+
+                   
+                     <div class="form-group">
+                        <label for="lastName" class="col-sm-3 control-label">Product Name</label>
+                        <div class="col-sm-6">
+                           
+                           
+                           <input type="text"  id="firstName" style="width:400px" class="form-control"  value=asdf  formControlName="productName"  />
+                        </div>
+                        <div *ngIf="formProfile.controls['productName'].errors" style="color: red;">
+                            This Field is required  
+                        </div>
+                    </div>
+                  
+
+                    <div class="form-group">
+                        <label for="firstName"  class="col-sm-3 control-label">Product Category</label>
+                        <div class="col-sm-6">
+                            <input  type="text"  class="form-control" id="firstName" style="width:400px"  value=asdf  formControlName="productCategory"  />
+                        </div>
+                        <div *ngIf="formProfile.controls['productCategory'].errors" style="color: red;">
+                            This Field is required  
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName"  class="col-sm-3 control-label">Product Rate</label>
+                        <div class="col-sm-6">
+                            <input  type="text" class="form-control"  id="firstName" style="width:400px" value=asdf formControlName="grandTotal"  />
+                        </div>
+                        <div *ngIf="formProfile.controls['grandTotal'].errors" style="color: red;">
+                            This Field is required  
+                        </div>
+                    </div> 
+                  
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" value="Save"  class="btn btn-primary">Save changes</button>
+                      </div>
+                    <!-- <input type="submit" value="Save" class="btn btn-primary mt-3" />  -->
+                </form>
+            </div> 
+
+        </div>
+        
+      </div>
+    </div>
+  </div>

@@ -1,73 +1,142 @@
-<div class="card1">
- 
-        <div class="container d-flex">
-            <div class="item">
-                <a (click)="filter('')">
-                    <img style="width: 62px; margin-top: 8px;" src="http://localhost:4200/assets/product.png" alt="">
-                    <h6> All Products</h6>
-                </a>
-           
-    
-            </div>
-            <div class="item">
-                <a (click)="filter('health')">
-                    <img style="width: 62px; margin-top: 8px;"  src="http://localhost:4200/assets/health.jfif" alt="">
-                    <h6>Health</h6>
-                </a>
-    
-            </div>
-            <div class="item">
-                <a (click)="filter('Mobile')">
-                    <img style="width: 62px; margin-top: 8px;"  src="http://localhost:4200/assets/mobile.jpg" alt="">
-                    <h6>Mobiles</h6>
-                </a>
-    
-            </div>
-            <div class="item">
-                <a (click)="filter('fashion')">
-                    <img style="width: 93px; margin-top: 4px;" src="http://localhost:4200/assets/fashion.jfif" alt="">
-                    <h6>Fashion</h6>
-                </a>
-    
-            </div>
-            <div class="item">
-                <a (click)="filter('grocery')">
-                    <img style="width: 67px; margin-top: 5px;" src="http://localhost:4200/assets/grocery.png" alt="">
-                    <h6>Grocery</h6>
-                </a>
-    
-            </div>
-            <div class="item">
-                <a (click)="filter('electronics')">
-                    <img style="width: 70px; margin-top: 5px;"  src="http://localhost:4200/assets/electronics.png" alt="">
-                    <h6>Electronics</h6>
-                </a>
-    
-            </div>
-            <div class="item">
-                <a (click)="filter('jewellery')">
-                    <img style="width: 62px; margin-top: 8px;"  src="http://localhost:4200/assets/jewellery.jfif" alt="">
-                    <h6>Jewellery</h6>
-                </a>
-    
-            
-        </div>
-    </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <ng-container  *ngFor = "let item of filterCategory | filter: searchKey:'productCategory'">
-                <div class="card col-md-3">
-                    <img src="{{item.imageurl}}" alt="">
-                    <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.productName}}</h5>
-                    <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
-                    <h5>₹ {{item.productRate}}</h5>
-                    <p>{{item.rating}}</p>
-                    <button class="btn btn-primary" (click)=addtocart(item)>Add to cart</button>
-                    <br>
-                </div>
-            </ng-container>
-            
-        </div>
+<div class="container">
+  <div class="card1">
+    <div class="container d-flex">
+      <div class="item">
+        <a (click)="filter('')">
+          <img
+            style="width: 62px; margin-top: 8px"
+            src="http://localhost:4200/assets/product.png"
+            alt=""
+          />
+          <h6>All Products</h6>
+        </a>
       </div>
+      <div class="item">
+        <a (click)="filter('health')">
+          <img
+            style="width: 62px; margin-top: 8px"
+            src="http://localhost:4200/assets/health.jfif"
+            alt=""
+          />
+          <h6>Health</h6>
+        </a>
+      </div>
+      <div class="item">
+        <a (click)="filter('Mobile')">
+          <img
+            style="width: 62px; margin-top: 8px"
+            src="http://localhost:4200/assets/mobile.jpg"
+            alt=""
+          />
+          <h6>Mobiles</h6>
+        </a>
+      </div>
+      <div class="item">
+        <a (click)="filter('fashion')">
+          <img
+            style="width: 93px; margin-top: 4px"
+            src="http://localhost:4200/assets/fashion.jfif"
+            alt=""
+          />
+          <h6>Fashion</h6>
+        </a>
+      </div>
+      <div class="item">
+        <a (click)="filter('grocery')">
+          <img
+            style="width: 67px; margin-top: 5px"
+            src="http://localhost:4200/assets/grocery.png"
+            alt=""
+          />
+          <h6>Grocery</h6>
+        </a>
+      </div>
+      <div class="item">
+        <a (click)="filter('electronics')">
+          <img
+            style="width: 70px; margin-top: 5px"
+            src="http://localhost:4200/assets/electronics.png"
+            alt=""
+          />
+          <h6>Electronics</h6>
+        </a>
+      </div>
+      <div class="item">
+        <a (click)="filter('jewellery')">
+          <img
+            style="width: 62px; margin-top: 8px"
+            src="http://localhost:4200/assets/jewellery.jfif"
+            alt=""
+          />
+          <h6>Jewellery</h6>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+    <div style="width: 1145px;"
+      class="carousel"
+      data-flickity='{ "wrapAround": true, "autoPlay": 1400, "imagesLoaded":true }'
+    >
+      <div class="carousel-cell" >
+        <img
+          class="img-fluid"
+          src="http://localhost:4200/assets/carousel_01.jpg"
+         
+        />
+      </div>
+
+      <div class="carousel-cell">
+        <img
+        class="img-fluid"
+          src="http://localhost:4200/assets/carousel_02.jpg"
+         
+        />
+      </div>
+
+      <div class="carousel-cell">
+        <img  
+        class="img-fluid"
+          src="http://localhost:4200/assets/carousel_03.jpg"
+          
+        />
+      </div>
+    </div>
+ <div class="row" >
+    <ng-container
+      *ngFor="let item of filterCategory | filter: searchKey:'productCategory'"
+    >
+      <div class="card col-md-3">
+        <img src="{{ item.imageurl }}" alt="" />
+        <h5
+          style="
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100ch;
+          "
+        >
+          {{ item.productName }}
+        </h5>
+        <p
+          style="
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100ch;
+          "
+        >
+          {{ item.description }}
+        </p>
+        <h5>₹ {{ item.productRate }}</h5>
+        <p>{{ item.rating }}</p>
+        <button class="btn btn-primary" (click)="addtocart(item)">
+          Add to cart
+        </button>
+        <br />
+      </div>
+    </ng-container>
+</div> 
+
+
+</div>
