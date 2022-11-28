@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # EShopping
+=======
+# Ashop
+>>>>>>> 81d8ec4a776d6d5822c603f2355741407097e28e
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
 
